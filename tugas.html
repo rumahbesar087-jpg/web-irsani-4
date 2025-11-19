@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumpulan Tugas - Blog Pribadi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f0f4ff;
+    }
+
+    header {
+      background: #4a6cf7;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeDown 1.2s ease-in-out;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4a6cf7;
+      font-weight: bold;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+    nav a:hover {
+      color: #1f3cd1;
+      transform: translateY(-3px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .task-form label {
+      font-weight: 600;
+    }
+
+    .task-form input,
+    .task-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .task-form button {
+      background: #4a6cf7;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .task-form button:hover {
+      background: #3a5ad8;
+    }
+
+    .task-list {
+      margin-top: 30px;
+    }
+
+    .task-item {
+      background: #eef2ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="tentangSaya.html">Tentang Saya</a>
+    <a href="tugas.html">Tugas</a>
+    <a href="webpkl.html">Pengalaman PKL</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <header>Pengumpulan Tugas</header>
+
+  <div class="container">
+    <h2>Form Pengumpulan Tugas</h2>
+    <form class="task-form" id="taskForm">
+      <label>Judul Tugas</label>
+      <input type="text" id="title" required />
+
+      <label>Deskripsi</label>
+      <textarea id="description" rows="4" required></textarea>
+
+      <label>Link File (Google Drive / GitHub / lainnya)</label>
+      <input type="url" id="fileLink" required />
+
+      <button type="submit">Kumpulkan</button>
+    </form>
+
+    <h2>Daftar Tugas Terkumpul</h2>
+    <div class="task-list" id="taskList"></div>
+  </div>
+
+  <footer>Website Pengumpulan Tugas © 2025</footer>
+
+  <script>
+    const form = document.getElementById('taskForm');
+    const taskList = document.getElementById('taskList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const fileLink = document.getElementById('fileLink').value;
+
+      const taskItem = document.createElement('div');
+      taskItem.classList.add('task-item');
+      taskItem.innerHTML = `
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <a href="${fileLink}" target="_blank">Lihat File</a>
+      `;
+
+      taskList.appendChild(taskItem);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
