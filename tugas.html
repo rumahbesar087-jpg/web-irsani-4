@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pengumpulan Tugas - Blog Pribadi</title>
+  <title>Daftar Tugas - Blog Pribadi</title>
   <style>
     body {
       margin: 0;
@@ -30,7 +30,6 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      animation: fadeDown 1.2s ease-in-out;
     }
     nav a {
       text-decoration: none;
@@ -58,45 +57,17 @@
       color: #2c3e50;
     }
 
-    .task-form label {
-      font-weight: 600;
-    }
-
-    .task-form input,
-    .task-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    .task-form button {
-      background: #4a6cf7;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    .task-form button:hover {
-      background: #3a5ad8;
-    }
-
-    .task-list {
-      margin-top: 30px;
-    }
-
     .task-item {
       background: #eef2ff;
+      border-left: 6px solid #4a6cf7;
       padding: 15px;
       border-radius: 10px;
       margin-bottom: 15px;
+    }
+
+    .task-item h3 {
+      margin: 0;
+      color: #2c3e50;
     }
 
     footer {
@@ -116,52 +87,33 @@
     <a href="kontak.html">Kontak</a>
   </nav>
 
-  <header>Pengumpulan Tugas</header>
+  <header>Daftar Tugas</header>
 
   <div class="container">
-    <h2>Form Pengumpulan Tugas</h2>
-    <form class="task-form" id="taskForm">
-      <label>Judul Tugas</label>
-      <input type="text" id="title" required />
+    <h2>Tugas yang Harus Dikumpulkan</h2>
 
-      <label>Deskripsi</label>
-      <textarea id="description" rows="4" required></textarea>
+    <!-- Kamu tinggal menambahkan tugas di sini -->
+    <div class="task-item">
+      <h3>Tugas 1: Tugas ASJ 2025</h3>
+      <p>Mata Pelajaran: ASJK</p>
+      <p>Deadline: 60 menit</p>
+      <a href="tugasASJ.html">web tugas ASJ</a>
+    </div>
 
-      <label>Link File (Google Drive / GitHub / lainnya)</label>
-      <input type="url" id="fileLink" required />
+    <div class="task-item">
+      <h3>Tugas 2: Ringkasan Bab 3</h3>
+      <p>Mata Pelajaran: Bahasa Indonesia</p>
+      <p>Deadline: 23 November 2025</p>
+    </div>
 
-      <button type="submit">Kumpulkan</button>
-    </form>
+    <div class="task-item">
+      <h3>Tugas 3: Laporan Praktikum</h3>
+      <p>Mata Pelajaran: IPA</p>
+      <p>Deadline: 25 November 2025</p>
+    </div>
 
-    <h2>Daftar Tugas Terkumpul</h2>
-    <div class="task-list" id="taskList"></div>
   </div>
 
   <footer>Website Pengumpulan Tugas © 2025</footer>
-
-  <script>
-    const form = document.getElementById('taskForm');
-    const taskList = document.getElementById('taskList');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const title = document.getElementById('title').value;
-      const description = document.getElementById('description').value;
-      const fileLink = document.getElementById('fileLink').value;
-
-      const taskItem = document.createElement('div');
-      taskItem.classList.add('task-item');
-      taskItem.innerHTML = `
-        <h3>${title}</h3>
-        <p>${description}</p>
-        <a href="${fileLink}" target="_blank">Lihat File</a>
-      `;
-
-      taskList.appendChild(taskItem);
-
-      form.reset();
-    });
-  </script>
 </body>
 </html>
